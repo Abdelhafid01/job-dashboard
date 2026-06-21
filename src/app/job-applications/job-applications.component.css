@@ -1,0 +1,259 @@
+.card {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px;
+  border-bottom: 1px solid #f1f5f9;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.card-header h2 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a2e;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.card-header h2 i {
+  color: #4f46e5;
+}
+
+.table-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.status-filter {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  background: #f0f2f5;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-btn.active {
+  background: #4f46e5;
+  color: #fff;
+}
+
+.filter-btn:hover:not(.active) {
+  background: #e2e8f0;
+}
+
+.results-count {
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 950px;
+}
+
+thead th {
+  text-align: left;
+  padding: 12px 16px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid #f1f5f9;
+  background: #fafbfc;
+  white-space: nowrap;
+}
+
+tbody tr {
+  transition: background 0.15s;
+}
+
+tbody tr:hover {
+  background: #f8fafc;
+}
+
+tbody td {
+  padding: 14px 16px;
+  font-size: 13px;
+  border-bottom: 1px solid #f1f5f9;
+  white-space: nowrap;
+}
+
+/* Company */
+.company-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.company-logo {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.company-name {
+  font-weight: 600;
+  color: #1a1a2e;
+}
+
+/* Position */
+.position-text {
+  color: #334155;
+  font-weight: 500;
+}
+
+/* Location */
+.location-text {
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.location-text i {
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+/* Status */
+.status-badge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+
+.status-applied {
+  background: #eff6ff;
+  color: #3b82f6;
+}
+
+.status-interview {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+.status-offer {
+  background: #ecfdf5;
+  color: #059669;
+}
+
+.status-rejected {
+  background: #fef2f2;
+  color: #ef4444;
+}
+
+.status-pending {
+  background: #f5f3ff;
+  color: #7c3aed;
+}
+
+/* Salary */
+.salary-text {
+  font-weight: 600;
+  color: #059669;
+}
+
+/* Source */
+.source-text {
+  color: #64748b;
+}
+
+/* Match Score Label */
+.match-label {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.match-excellent {
+  background: #ecfdf5;
+  color: #059669;
+}
+
+.match-good {
+  background: #eff6ff;
+  color: #3b82f6;
+}
+
+.match-fair {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+.match-low {
+  background: #fef2f2;
+  color: #ef4444;
+}
+
+/* Open & Apply Button */
+.btn-apply {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 16px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.btn-apply:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.35);
+}
+
+.btn-apply:active {
+  transform: translateY(0);
+}
+
+.btn-apply i {
+  font-size: 11px;
+}

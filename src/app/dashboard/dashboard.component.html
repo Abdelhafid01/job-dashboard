@@ -1,0 +1,76 @@
+<div class="dashboard-layout" [class.sidebar-collapsed]="sidebarCollapsed">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="logo">
+        <i class="fas fa-rocket"></i>
+        <span class="logo-text" *ngIf="!sidebarCollapsed">JobPilot</span>
+      </div>
+      <button class="collapse-btn" (click)="toggleSidebar()">
+        <i class="fas" [ngClass]="sidebarCollapsed ? 'fa-chevron-right' : 'fa-chevron-left'"></i>
+      </button>
+    </div>
+
+    <nav class="sidebar-nav">
+      <ul>
+        <li [class.active]="activeNav === 'dashboard'" (click)="setActiveNav('dashboard')">
+          <i class="fas fa-th-large"></i>
+          <span *ngIf="!sidebarCollapsed">Dashboard</span>
+        </li>
+        <li [class.active]="activeNav === 'jobs'" (click)="setActiveNav('jobs')">
+          <i class="fas fa-briefcase"></i>
+          <span *ngIf="!sidebarCollapsed">Job Listings</span>
+        </li>
+        <li [class.active]="activeNav === 'profile'" (click)="setActiveNav('profile')">
+          <i class="fas fa-user"></i>
+          <span *ngIf="!sidebarCollapsed">Profile</span>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- Header (fixed) -->
+    <header class="top-header">
+      <div class="header-left">
+        <h1>{{ activeNav === 'dashboard' ? 'Dashboard' : activeNav === 'jobs' ? 'Job Listings' : 'Profile' }}</h1>
+      </div>
+      <div class="header-right">
+        <div class="search-bar">
+          <i class="fas fa-search"></i>
+          <input type="text" placeholder="Search jobs, companies..." [(ngModel)]="searchQuery">
+        </div>
+        <div class="user-avatar">
+          <span>JD</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Scrollable Content Area -->
+    <div class="scroll-content">
+      <!-- Stats Cards: only on Dashboard -->
+      <section class="stats-grid" *ngIf="activeNav === 'dashboard'">
+        <div class="stat-card" *ngFor="let stat of stats" [style.border-left-color]="stat.color">
+          <div class="stat-icon" [style.background-color]="stat.color + '15'" [style.color]="stat.color">
+            <i class="fas" [ngClass]="stat.icon"></i>
+          </div>
+          <div class="stat-info">
+            <span class="stat-label">{{ stat.label }}</span>
+            <span class="stat-value">{{ stat.value }}</span>
+            <span class="stat-trend" [class.trend-up]="stat.trendUp" [class.trend-down]="!stat.trendUp">
+              <i class="fas" [ngClass]="stat.trendUp ? 'fa-arrow-up' : 'fa-arrow-down'"></i>
+              {{ stat.trend }} this week
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Job Listing Table: visible on Dashboard & Job Listings -->
+      <app-job-applications *ngIf="activeNav !== 'profile'" [searchQuery]="searchQuery"></app-job-applications>
+
+      <!-- Profile Form: visible on Profile -->
+      <app-profile *ngIf="activeNav === 'profile'"></app-profile>
+    </div>
+  </main>
+</div>

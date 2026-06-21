@@ -1,0 +1,57 @@
+<section class="card">
+  <div class="card-header">
+    <h2><i class="fas fa-table"></i> Job Listing</h2>
+    <div class="table-controls">
+      <div class="status-filter">
+        <button *ngFor="let status of statuses"
+                class="filter-btn"
+                [class.active]="selectedStatus === status"
+                (click)="selectedStatus = status">
+          {{ status }}
+        </button>
+      </div>
+      <span class="results-count">{{ filteredJobs.length }} results</span>
+    </div>
+  </div>
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Company</th>
+          <th>Position</th>
+          <th>Location</th>
+          <th>Status</th>
+          <th>Salary</th>
+          <th>Source</th>
+          <th>Match</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let job of filteredJobs">
+          <td>
+            <div class="company-cell">
+              <div class="company-logo">{{ job.company.charAt(0) }}</div>
+              <span class="company-name">{{ job.company }}</span>
+            </div>
+          </td>
+          <td><span class="position-text">{{ job.position }}</span></td>
+          <td><span class="location-text"><i class="fas fa-map-marker-alt"></i> {{ job.location }}</span></td>
+          <td><span class="status-badge" [ngClass]="getStatusClass(job.status)">{{ job.status }}</span></td>
+          <td><span class="salary-text">{{ job.salary }}</span></td>
+          <td><span class="source-text">{{ job.source }}</span></td>
+          <td>
+            <span class="match-label" [ngClass]="getMatchClass(job.matchScore)">
+              {{ job.matchScore }}%
+            </span>
+          </td>
+          <td>
+            <button class="btn-apply" (click)="openAndApply(job)">
+              <i class="fas fa-external-link-alt"></i> Open &amp; Apply
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
